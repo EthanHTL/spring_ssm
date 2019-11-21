@@ -15,7 +15,6 @@
         </where>
     </select>
 
-
     <insert id="addUser" parameterType="com.mybatis.vo.UserInfo">
 		insert into userInfo(username,password,sex) values(#{username},#{password},#{sex})
 	</insert>

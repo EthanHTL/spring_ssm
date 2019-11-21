@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,14 +19,22 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    //bean注入mapper
-    @Qualifier("userDao")
-    @Autowired
+    /**
+     * bean注入mapper
+     */
+    @Resource
     private UserDao userDao;
 
+    /**
+     * @Transactional 开启事务管理
+     * @param userInfo
+     * @return
+     */
+    @Transactional
     @Override
     public List<UserInfo> findUserinfoByUsernameAndPassword(UserInfo userInfo) {
         System.out.println("=======service:"+userInfo);
+//        userDao.deleteUserBid(67);
         List<UserInfo> list = userDao.findUserinfoByUsernameAndPassword(userInfo);
         return list;
     }
