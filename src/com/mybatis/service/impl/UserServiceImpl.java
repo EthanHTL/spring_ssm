@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import java.util.List;
 
 // 处理事务
 @Service("userService")
+//@Transactional(isolation = Isolation.REPEATABLE_READ)
 public class UserServiceImpl implements UserService {
 
     /**
@@ -53,5 +55,11 @@ public class UserServiceImpl implements UserService {
     public int updateUserBid(UserInfo userInfo) {
         return userDao.updateUserBid(userInfo);
     }
+
+    @Override
+    public List<UserInfo> finda() {
+        return userDao.finda();
+    }
+
 
 }

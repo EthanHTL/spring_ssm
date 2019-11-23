@@ -14,7 +14,13 @@ public class TestSsm{
 
         UserService  u = (UserService) context.getBean("userService");
 
-        List<UserInfo> userInfoList = u.findUserinfoByUsernameAndPassword(new UserInfo("q","q","男"));
+//        List<UserInfo> userInfoList = u.findUserinfoByUsernameAndPassword(new UserInfo("q","q","男"));
+//        for (UserInfo user: userInfoList
+//        ) {
+//            System.out.println(user.toString());
+//
+//        }
+        List<UserInfo> userInfoList = u.finda();
         for (UserInfo user: userInfoList
         ) {
             System.out.println(user.toString());

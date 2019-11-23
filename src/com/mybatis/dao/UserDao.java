@@ -4,6 +4,8 @@ import com.mybatis.mapper.userMapper;
 import com.mybatis.vo.UserInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -35,5 +37,10 @@ public class UserDao implements userMapper {
     @Override
     public int updateUserBid(UserInfo userInfo) {
         return sqlSessionTemplate.update("com.mybatis.mapper.userMapper.updateUserBid");
+    }
+
+    @Override
+    public List<UserInfo> finda() {
+        return sqlSessionTemplate.selectList("com.mybatis.mapper.userMapper.finda");
     }
 }

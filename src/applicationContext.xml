@@ -33,31 +33,29 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- 配置映射文件的位置 -->
         <property name="mapperLocations" value="classpath:com/mybatis/mapper/*.xml"/>
+
     </bean>
 
-    <!--    配置mapper接口-->
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <!-- 关联mapper接口 -->
-        <property name="mapperInterface" value="com.mybatis.mapper.userMapper"/>
-        <!-- 关联sqlSessionFactory -->
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    <!--    批量配置mapper,配置mapper接口-->
+    <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mybatis.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!-- 申明式事务配置 开始 -->
     <!--  配置事务管理器  -->
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
+
     </bean>
-
-
-    <!--  启用Spring事务注解(注解实现配置事务通知)  -->
-    <!--    <tx:annotation-driven transaction-manager="txManager"/>-->
 
     <!--  配置 aop  -->
     <aop:aspectj-autoproxy/>
 
-    <!--  开启事务注解驱动  -->
-    <tx:annotation-driven/>
+    <!--  启用Spring事务注解(注解实现配置事务通知)  -->
+<!-- <tx:annotation-driven/> -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
     <!-- (配置事务管理)transaction manager, use JtaTransactionManager for global tx
         @Transactional 注解实现开启事务-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

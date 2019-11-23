@@ -17,4 +17,6 @@ public interface UserService {
     int deleteUserBid(int id);
 
     int updateUserBid(UserInfo userInfo);
+
+    List<UserInfo> finda();
 }
