@@ -14,5 +14,9 @@
      <a href="userController/input">hello</a>
      <br>
      <a href="userController/show">show</a>
+     <a href="fileUploadController/fileUp">file</a>
+
+
+
   </body>
 </html>

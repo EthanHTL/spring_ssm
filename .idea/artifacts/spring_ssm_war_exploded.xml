@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="spring_ssm:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/spring_ssm_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/spring_ssm_war_exploded/WEB-INF/jsp</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="spring_ssm/web/Web" />
       <element id="directory" name="WEB-INF">
@@ -8,8 +8,8 @@
           <element id="module-output" name="spring_ssm" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Spring MVC" />
           <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="spring_lib" />
         </element>
       </element>
     </root>

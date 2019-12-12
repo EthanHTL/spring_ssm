@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
         用户信息：<input type="text" id="username" name="username"><br><br>
         PassWord:<input type="password" id="password" name="password"><br><br>
         用户性别：<input type="radio"  name="sex" value="男">男

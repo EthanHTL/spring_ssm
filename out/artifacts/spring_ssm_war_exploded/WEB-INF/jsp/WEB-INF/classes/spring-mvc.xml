@@ -28,7 +28,6 @@
     <!--  配置静态资源，直接映射到对应的文件夹，不被DispatcherServlet处理  -->
 <!--    <mvc:resources mapping="" location=""/>-->
 
-
     <!--  视图解析器：简化在Controller类编写的视图路径  -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--    前缀    -->
@@ -36,6 +35,8 @@
         <!--    后缀    -->
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <bean id="commonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 
 </beans>

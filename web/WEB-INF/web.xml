@@ -5,7 +5,6 @@
          version="4.0">
 
 
-
     <!--解决请求乱码问题-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
@@ -42,16 +41,29 @@
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+
+
+        <multipart-config>
+            <!-- 配置文件上传路径 -->
+            <location>E:/JAVA项目文件夹_Web/spring_ssm/web/upload/</location>
+            <!-- 配置文件上传大小 最大值 -->
+            <max-file-size>5242880</max-file-size>
+            <!-- 配置每个请求上传的文件最大值 -->
+            <max-request-size>52428800</max-request-size>
+        </multipart-config>
     </servlet>
 
-    <!-- Map all requests to the DispatcherServlet for handling -->
+    <!-- 处理所有请求 -->
     <servlet-mapping>
         <servlet-name>springDispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.js</url-pattern>
-    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
