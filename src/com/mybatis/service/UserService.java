@@ -14,6 +14,8 @@ public interface UserService {
 
     int addUser(UserInfo userInfo);
 
+    int insertUsers(List<UserInfo> userInfos);
+
     int deleteUserBid(int id);
 
     int updateUserBid(UserInfo userInfo);

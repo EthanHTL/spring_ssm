@@ -2,6 +2,7 @@ package com.mybatis.dao;
 
 import com.mybatis.mapper.userMapper;
 import com.mybatis.vo.UserInfo;
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserDao implements userMapper {
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public List<UserInfo> findUserinfoByUsernameAndPassword(UserInfo userInfo) {
+    public List<UserInfo> findUserinfoByUsernameAndPassword(@Param(value = "") UserInfo userInfo) {
         System.out.println("========Dao"+userInfo);
         return sqlSessionTemplate.selectList("com.mybatis.mapper.userMapper.findUserinfoByUsernameAndPassword");
     }
@@ -27,6 +28,11 @@ public class UserDao implements userMapper {
     public int addUser(UserInfo userInfo) {
         System.out.println("=======Dao:"+userInfo);
         return sqlSessionTemplate.insert("com.mybatis.mapper.userMapper.addUser",userInfo);
+    }
+
+    @Override
+    public int insertUsers(List<UserInfo> userInfos) {
+        return sqlSessionTemplate.insert("com.mybatis.mapper.userMapper.insertUsers",userInfos);
     }
 
     @Override
@@ -43,4 +49,6 @@ public class UserDao implements userMapper {
     public List<UserInfo> finda() {
         return sqlSessionTemplate.selectList("com.mybatis.mapper.userMapper.finda");
     }
+
+
 }

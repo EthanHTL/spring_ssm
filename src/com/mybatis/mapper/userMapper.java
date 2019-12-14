@@ -14,11 +14,13 @@ public interface userMapper {
 
     int addUser(UserInfo userInfo);
 
+    int insertUsers(List<UserInfo> userInfos);
+
     int deleteUserBid(int id);
 
     int updateUserBid(UserInfo userInfo);
 
-    @Select("select * from user")
+    @Select("select * from userinfo")
     List<UserInfo> finda();
 
 }
