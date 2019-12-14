@@ -3,6 +3,7 @@ package com.mybatis.controller;
 
 import com.mybatis.service.UserService;
 import com.mybatis.vo.UserInfo;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -76,6 +77,13 @@ public class UserController {
         }
         model.addAttribute("userList",userInfos);
         return "showUser";
+    }
+
+    @RequestMapping("/findAll")
+    @ResponseBody
+    public List<UserInfo> findAll(){
+        List<UserInfo> userInfos = userService.finda();
+        return userInfos;
     }
 
 

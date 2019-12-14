@@ -47,6 +47,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int insertUsers(List<UserInfo> userInfos) {
+        return userDao.insertUsers(userInfos);
+    }
+
+    @Override
     public int deleteUserBid(int id) {
         return userDao.deleteUserBid(id);
     }

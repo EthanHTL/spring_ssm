@@ -18,6 +18,15 @@
     <insert id="addUser" parameterType="com.mybatis.vo.UserInfo">
 		insert into userInfo(username,password,sex) values(#{username},#{password},#{sex})
 	</insert>
+
+    <insert id="insertUsers" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into userinfo (username, password, sex) values
+        <foreach item="item" collection="list" separator=",">
+            (#{item.username}, #{item.password}, #{item.sex})
+        </foreach>
+    </insert>
+
     <!-- 删除用户数据 -->
     <delete id="deleteUserBid" parameterType="int">
 		delete from userInfo where id = #{id}
